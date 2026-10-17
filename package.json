@@ -1,0 +1,31 @@
+{
+  "name": "sds-09-accessibility-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "verify": "npm run check && npm test",
+    "demo": "tsx scripts/demo.ts",
+    "test:ui": "tsx scripts/verify-ui.ts",
+    "setup": "playwright install chromium",
+    "progress": "node scripts/progress.mjs"
+  },
+  "dependencies": {
+    "axe-core": "4.14.0",
+    "express": "5.3.0",
+    "playwright": "1.64.1"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "26.6.5",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

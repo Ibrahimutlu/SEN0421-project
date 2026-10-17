@@ -1,0 +1,25 @@
+{
+  "project": "SDS-09",
+  "timezone": "Europe/Istanbul",
+  "dailyTime": "10:00",
+  "startedOn": "2026-10-17",
+  "lastCompletedOn": "2026-10-17",
+  "nextStage": 2,
+  "automationId": "sds-09-g-nl-k-proje-geli-tirme",
+  "stages": [
+    { "id": 1, "title": "Ortam ve örnek denetim", "status": "completed", "completedOn": "2026-10-17" },
+    { "id": 2, "title": "Web adresiyle tarama", "status": "pending" },
+    { "id": 3, "title": "Bulgular ekranı", "status": "pending" },
+    { "id": 4, "title": "Tarama geçmişi", "status": "pending" },
+    { "id": 5, "title": "Kontrast analizi", "status": "pending" },
+    { "id": 6, "title": "Erişilebilir ad ve ARIA", "status": "pending" },
+    { "id": 7, "title": "Klavye davranışı", "status": "pending" },
+    { "id": 8, "title": "İnsan doğrulaması", "status": "pending" },
+    { "id": 9, "title": "Düzeltme önerileri", "status": "pending" },
+    { "id": 10, "title": "Yerel otomatik iyileştirme", "status": "pending" },
+    { "id": 11, "title": "Sınırlı site taraması", "status": "pending" },
+    { "id": 12, "title": "Rapor dışa aktarımı", "status": "pending" },
+    { "id": 13, "title": "Regresyon ve paketleme", "status": "pending" },
+    { "id": 14, "title": "Ders teslim paketi", "status": "pending" }
+  ]
+}

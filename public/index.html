@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SDS-09 erişilebilirlik denetimi ve günlük proje takibi.">
+  <title>SDS-09 · Erişilebilirlik denetimi</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header><a class="brand" href="/">SDS<span>09</span></a><span>Erişilebilirlik denetimi</span><span class="local">Yerel çalışma alanı</span></header>
+  <main id="main">
+    <p class="eyebrow">SEN0421 / PROJE SDS-09</p>
+    <h1>Erişilebilirlik<br>denetimi</h1>
+    <p class="intro">WCAG 2.1 A ve AA kurallarıyla otomatik denetim. Bulgular, etkilenen öğeler ve elle kontrol gerektiren noktalar tek raporda.</p>
+    <div class="workspace">
+      <section aria-labelledby="scan-title" class="scan">
+        <div class="section-label">01 / DENETİM</div>
+        <h2 id="scan-title">Örnek sayfayı tara</h2>
+        <p>İlk aşamada denetim motorunu iki kontrollü örnekle doğrulayın. Web adresiyle tarama ikinci aşamada eklenecek.</p>
+        <form id="scan-form">
+          <label for="example">Test sayfası</label>
+          <select id="example" name="example"><option value="issues">Bilinen hatalar içeren sayfa</option><option value="accessible">Düzeltilmiş sayfa</option></select>
+          <button type="submit" id="scan-button">Denetimi başlat <span aria-hidden="true">↗</span></button>
+        </form>
+        <p id="status" role="status" aria-live="polite">Denetim başlatılmadı.</p>
+        <p id="error" role="alert" hidden></p>
+        <section id="results" aria-labelledby="result-title" hidden>
+          <h3 id="result-title">Denetim sonucu</h3>
+          <p id="summary"></p><div id="findings"></div>
+          <button type="button" id="download" class="secondary">JSON raporunu indir</button>
+          <h3>Elle doğrulama</h3><ul id="manual"></ul>
+        </section>
+      </section>
+      <aside aria-labelledby="progress-title">
+        <div class="section-label">02 / İLERLEME</div>
+        <h2 id="progress-title">Günlük çalışma</h2>
+        <p class="schedule">Her gün <strong>10.00</strong><br><span>Türkiye saati</span></p>
+        <p id="progress-count" role="status">Aşamalar yükleniyor…</p>
+        <progress id="progress" max="14" value="0" aria-label="Tamamlanan aşamalar"></progress>
+        <ol id="stages"></ol>
+      </aside>
+    </div>
+    <footer>Otomatik tarama, tam WCAG uygunluğunu kanıtlamaz. Klavye ve ekran okuyucu kontrolleri ayrıca yapılır.</footer>
+  </main>
+</body>
+</html>
