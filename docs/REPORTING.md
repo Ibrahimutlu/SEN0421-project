@@ -23,3 +23,5 @@ The ID is an example; use the next actual sequential ID. Existing IDs return the
 Scores are simulations, never measured contribution or instructor grades. Every report totals 42 points across six members and each score stays between 5 and 9. Before the final report, cumulative deviations from 7 per report stay between -2 and 2. The final entry cancels those deviations, giving every member an identical final average of 7.00 regardless of the eventual report count. The ledger test verifies this invariant across several series lengths.
 
 R01 final artifacts: reports/SDS-09_Progress_Report_R01.pdf and .docx. The Markdown file is the editable authoring source. Rendered page images in tmp/ are internal QA. Microsoft Word rendered the DOCX to PDF because bundled LibreOffice is unavailable on Windows; the packaged renderer's rasterization and bundled Poppler produced the page images. All five final pages were visually inspected.
+
+For future reports, the assessment section should contain only the descriptive illustrative-assessment heading and member score table. Keep scoring mechanics in the internal ledger documentation, not in the report body.

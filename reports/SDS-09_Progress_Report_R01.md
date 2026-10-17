@@ -109,7 +109,6 @@ Daily development remains scheduled for 10:00 Europe/Istanbul, starting from sta
 <!-- pagebreak -->
 ## 5 Illustrative peer assessment
 
-The scores below are simulated allocations requested for report planning. They are not measured individual performance, verified contributions or instructor grades. No performance narrative is inferred from a random score. The team should replace them with evidence-based peer assessment if the course requires actual contribution scoring.
 
 | Member | Student ID | R01 score out of 9 | Current mean |
 | --- | --- | --- | --- |
@@ -120,13 +119,9 @@ The scores below are simulated allocations requested for report planning. They a
 | Erdinç Karagülle | 2400005708 | 7 | 7.00 |
 | Göktuğ Dal | 2400005048 | 5 | 5.00 |
 
-Every score is an integer from 5 to 9. This report assigns 42 points in total, a mean of 7 across six members. Individual current means differ because this is the first entry.
 
-### Equal final averages
 
-The ledger in docs/assessment-ledger.json preserves each report without altering past scores. After n non-final reports, each member's cumulative total remains within two points of 7n. For the final report, that member receives 7 minus the existing deviation. This final score is always between 5 and 9, and every final total becomes exactly 7 times the total number of reports. Each member therefore finishes with an identical average of 7.00, even if the number of reports changes.
 
-The balancing rule was tested with series of 1, 2, 3, 6, 17 and 50 reports. It applies only to this illustrative simulation; it must not be described as an independent measurement of contribution.
 
 ### References
 

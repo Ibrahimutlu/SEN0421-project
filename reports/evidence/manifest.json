@@ -22,13 +22,14 @@
   "outputs": [
     {
       "file": "SDS-09_Progress_Report_R01.pdf",
-      "bytes": 313475,
-      "sha256": "07978fb66e4d10838528141ee0a1bf278db08fd1b95af2d72bae195bc9541135"
+      "bytes": 310519,
+      "sha256": "0b1b1fcd6a7e966101e61702dc2ac36e9e0ebaf386dc1f3ba8557e9a27b2a982"
     },
     {
       "file": "SDS-09_Progress_Report_R01.docx",
-      "bytes": 45677,
-      "sha256": "c21ea60bbe38a1ca9f4605eb96212f465e577ae7b56d209d15b559505d893867"
+      "bytes": 45095,
+      "sha256": "9d5670fee12b12d94d68173f4ebaa0e44b877f9e5b0116f24c1dc5b76fdff996"
     }
-  ]
+  ],
+  "revision": "R01 layout revision: assessment section contains only its descriptive heading and existing table."
 }

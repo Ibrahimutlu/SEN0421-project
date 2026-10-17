@@ -34,3 +34,5 @@ Remaining: stages 6 through 14. Real screen reader testing and full keyboard beh
 Next scheduled work: stage 6, accessible names and ARIA, 18 October 2026 at 10:00 Europe/Istanbul. The automation has been updated to preserve English project content and resume from the progress file.
 
 Report R01 completed: five-page English PDF and editable Word report covering stages 1 through 5, SDLC evidence, standards, proposed responsibilities and clearly labeled simulated scores. The instructor requirement is a true footnote. All pages were rendered and inspected. Final evidence snapshots are preserved in reports/evidence/. A live POST /api/scans call stored an example.com report in the production SQLite database and the history endpoint returned it. Next stage remains 6.
+
+R01 document revision: removed explanatory text from the assessment section at the user's request. The existing member scores and source references are unchanged. PDF and Word were updated together; pages 1 through 4 are unchanged. No new assessment entry or development stage was created.
