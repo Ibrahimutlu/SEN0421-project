@@ -1,0 +1,12 @@
+{
+  "leaderId": "2200005270",
+  "responsibilityStatus": "Proposed allocation for team confirmation; not an authorship record",
+  "members": [
+    { "name": "Emre Men", "studentId": "2500002908", "role": "Requirements and standards traceability" },
+    { "name": "İbrahim Mutlu", "studentId": "2200005270", "role": "Team leader, integration and planning" },
+    { "name": "Alper Özkan", "studentId": "2300006148", "role": "URL scanner and request policy" },
+    { "name": "Gökhan Seçkin", "studentId": "2300008057", "role": "Findings interface and accessibility" },
+    { "name": "Erdinç Karagülle", "studentId": "2400005708", "role": "Persistence schema and history API" },
+    { "name": "Göktuğ Dal", "studentId": "2400005048", "role": "Contrast analysis and regression testing" }
+  ]
+}

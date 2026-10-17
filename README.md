@@ -1,12 +1,10 @@
-# SDS-09 — Erişilebilirlik Denetim ve İyileştirme Platformu
+# SDS-09 Accessibility Audit and Remediation Platform
 
-WCAG 2.1 A/AA denetimi. Ders: SEN0421.
+Course: SEN0421. Primary target: WCAG 2.1 Level AA, including Level A.
 
-## Çalıştırma
+## Start
 
-`Baslat.cmd` dosyasını açın. Uygulama: http://127.0.0.1:4210
-
-Terminalden:
+Open Start.cmd, then visit http://127.0.0.1:4210.
 
 ```powershell
 npm.cmd ci
@@ -14,40 +12,56 @@ npm.cmd run setup
 npm.cmd start
 ```
 
-Gereken: Node.js 22 veya üzeri. Bu bilgisayarda Node.js 24.12.0 kullanıldı.
-Tarayıcı ilk kurulumda indirilir. API anahtarı gerekmez.
+Requires Node.js 24.12 or newer. Chromium is downloaded during setup. No API key or cloud account is required. The server listens only on 127.0.0.1. PORT can override 4210. SDS09_DB_PATH can override data/scans.sqlite.
 
-## Bugün çalışan bölüm
+## Implemented through stage 5
 
-- Chromium ve axe-core ile iki yerel örnek sayfanın gerçek taraması.
-- Kural, önem derecesi, öğe ve WCAG etiketleri içeren sonuçlar.
-- Elle incelenecek bulguların ayrı kaydı ve JSON raporu indirme.
-- Günlük aşama takibi.
+- Public HTTP/HTTPS page audits with validated and pinned destination IPs, redirect checks and restricted resource loading.
+- Three controlled fixtures: known issues, a corrected page and contrast boundary cases.
+- Violation and needs-review findings; impact, rule/criterion and element filters; WCAG links and HTML evidence.
+- SQLite history that persists across restarts, paginated listing and saved report retrieval.
+- Contrast samples with colors, exact ratios, normal/large text thresholds and uncertain-background review states.
+- English interface, documentation and reports; JSON audit download.
 
-İnternet adresiyle tarama 2. aşamada; kalıcı kayıt, klavye analizi ve otomatik düzeltme sonraki aşamalarda.
+URL mode renders static HTML/CSS. Site scripts, frames, service workers and signed-in states are excluded. A blocked resource is recorded and the result is labeled partial. Complex color effects require manual review. Automated results do not establish full WCAG conformance.
 
-## Kontroller
+## Verify
 
 ```powershell
 npm.cmd run verify
 npm.cmd run test:ui
 npm.cmd run demo
 npm.cmd run progress
+node.exe --import tsx scripts/verify-public-url.ts
 ```
 
-`artifacts/demo-report.json` örnek rapordur. `test:ui` masaüstü ve telefon boyutlarında ekran görüntüleri üretir.
+The last command performs an optional live scan of example.com. Core tests use controlled transport fixtures. UI checks cover filters, history, export, contrast, keyboard entry and desktop/mobile accessibility.
 
-## Günlük çalışma
+## API
 
-Bu sohbete bağlı otomasyon her gün Türkiye saatiyle 10.00'da sıradaki aşamayı gerçekleştirir. Çalışma dizini bu klasördür. Takvim günü geçmesi bir aşamayı tamamlanmış yapmaz; kabul koşulu ve testler geçmelidir. Bilgisayar ve masaüstü uygulaması açık olmalıdır.
+| Method and path | Behavior |
+| --- | --- |
+| GET /api/health | Application and schema status |
+| GET /api/progress | Stage tracking |
+| POST /api/scans | Scan {"url":"https://example.com"}; returns 201 and a stored report |
+| POST /api/scans/demo | Scan {"example":"issues"}, "accessible" or "contrast" |
+| GET /api/scans?limit=20&offset=0 | Paginated history; limit 1 to 100 |
+| GET /api/scans/:id | Saved report or 404 |
 
-- [Aşamalar ve kabul koşulları](docs/ROADMAP.md)
-- [Makine tarafından okunan ilerleme](docs/progress.json)
-- [Çalışma günlüğü](docs/DAILY_LOG.md)
-- [Kapsam ve teknik kararlar](docs/SCOPE.md)
+One scan runs at a time; concurrent requests return 429. Only ports 80/443 are supported. Limits: 4 redirects per resource, 40 total requests, 2 MiB per response, 10 MiB total, 6-second resource inactivity timeout, 30-second scan deadline. Local, private, reserved and mixed public/private DNS results are rejected. Requests connect to validated IPs while preserving the HTTP Host and TLS server name. No remote credentials or cookies are forwarded.
 
-## Klasörler
+## Project records
 
-`src/`: denetim ve sunucu. `public/`: Türkçe arayüz. `fixtures/`: kontrollü test sayfaları. `tests/`: regresyon kontrolleri. `docs/`: plan ve ilerleme. `artifacts/`: üretilen raporlar.
+- docs/ROADMAP.md: stages and acceptance criteria.
+- docs/progress.json: machine-readable completion state.
+- docs/DAILY_LOG.md: completed work and verification evidence.
+- docs/SCOPE.md: scope and standards mapping.
+- docs/team.json: team roster and proposed responsibility allocation.
+- docs/assessment-ledger.json: simulated assessment history and balancing state.
+- reports/: English course progress reports.
+- artifacts/: generated scan evidence and screenshots, excluded from Git.
+- data/: local SQLite history, excluded from Git.
 
-Kaynak yönerge: `C:\Users\ibrah\Desktop\Yönerge.txt`. Referans dosyası değiştirilmedi. Dosyanın “Elde Edilecek Kazanımlar ve Çıktılar” bölümü boş; bu plandaki aşamalar kurulum sırasında önerilen uygulama kapsamıdır.
+Daily development continues at 10:00 Europe/Istanbul in this chat. The machine and desktop app must be running. On scheduled runs one stage is completed only after checks pass. Explicit user requests may accelerate the plan.
+
+The original project brief is C:\Users\ibrah\Desktop\Yönerge.txt and was not changed. Its deliverables section is blank; the roadmap defines the implementation scope used here.

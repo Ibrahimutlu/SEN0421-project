@@ -1,0 +1,389 @@
+{
+  "id": "fbcf8291-516d-47ee-b756-84642bf8d6e9",
+  "createdAt": "2026-10-17T18:40:43.629Z",
+  "target": "fixture:issues",
+  "standard": "WCAG 2.1",
+  "level": "AA",
+  "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+  },
+  "scope": "Automated audit of one page; this is not a full conformance statement.",
+  "summary": {
+    "violationRules": 5,
+    "affectedNodes": 5,
+    "passedRules": 6,
+    "needsReview": 0
+  },
+  "violations": [
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT",
+        "RGAAv4",
+        "RGAA-11.9.1"
+      ],
+      "criteria": [
+        {
+          "code": "4.1.2",
+          "url": "https://www.w3.org/TR/WCAG21/#name-role-value"
+        }
+      ],
+      "nodes": [
+        {
+          "target": [
+            "button"
+          ],
+          "html": "<button></button>",
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+          "checks": [
+            {
+              "id": "button-has-visible-text",
+              "message": "Element does not have inner text that is visible to screen readers",
+              "data": null
+            },
+            {
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty",
+              "data": null
+            },
+            {
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+              "data": null
+            },
+            {
+              "id": "non-empty-title",
+              "message": "Element has no title attribute",
+              "data": {
+                "messageKey": "noAttr"
+              }
+            },
+            {
+              "id": "implicit-label",
+              "message": "Element does not have an implicit (wrapped) <label>",
+              "data": null
+            },
+            {
+              "id": "explicit-label",
+              "message": "Element does not have an explicit <label>",
+              "data": null
+            },
+            {
+              "id": "presentational-role",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "data": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT",
+        "RGAAv4",
+        "RGAA-3.2.1"
+      ],
+      "criteria": [
+        {
+          "code": "1.4.3",
+          "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum"
+        }
+      ],
+      "nodes": [
+        {
+          "target": [
+            "p"
+          ],
+          "html": "<p style=\"color:#aaa;background:#fff\">This text has insufficient contrast.</p>",
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.32 (foreground color: #aaaaaa, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+          "checks": [
+            {
+              "id": "color-contrast",
+              "message": "Element has insufficient color contrast of 2.32 (foreground color: #aaaaaa, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "data": {
+                "fgColor": "#aaaaaa",
+                "bgColor": "#ffffff",
+                "contrastRatio": 2.32,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT",
+        "RGAAv4",
+        "RGAA-8.3.1"
+      ],
+      "criteria": [
+        {
+          "code": "3.1.1",
+          "url": "https://www.w3.org/TR/WCAG21/#language-of-page"
+        }
+      ],
+      "nodes": [
+        {
+          "target": [
+            "html"
+          ],
+          "html": "<html>",
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+          "checks": [
+            {
+              "id": "has-lang",
+              "message": "The <html> element does not have a lang attribute",
+              "data": {
+                "messageKey": "noLang"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "image-alt",
+      "impact": "critical",
+      "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+      "help": "Images must have alternative text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag111",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT7.a",
+        "TT7.b",
+        "EN-301-549",
+        "EN-9.1.1.1",
+        "ACT",
+        "RGAAv4",
+        "RGAA-1.1.1"
+      ],
+      "criteria": [
+        {
+          "code": "1.1.1",
+          "url": "https://www.w3.org/TR/WCAG21/#non-text-content"
+        }
+      ],
+      "nodes": [
+        {
+          "target": [
+            "img"
+          ],
+          "html": "<img src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3C/svg%3E\">",
+          "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+          "checks": [
+            {
+              "id": "has-alt",
+              "message": "Element does not have an alt attribute",
+              "data": null
+            },
+            {
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty",
+              "data": null
+            },
+            {
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+              "data": null
+            },
+            {
+              "id": "non-empty-title",
+              "message": "Element has no title attribute",
+              "data": {
+                "messageKey": "noAttr"
+              }
+            },
+            {
+              "id": "presentational-role",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "data": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "label",
+      "impact": "critical",
+      "description": "Ensure every form element has a label",
+      "help": "Form elements must have labels",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=axeAPI",
+      "tags": [
+        "cat.forms",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.n",
+        "TTv5",
+        "TT5.c",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT",
+        "RGAAv4",
+        "RGAA-11.1.1"
+      ],
+      "criteria": [
+        {
+          "code": "4.1.2",
+          "url": "https://www.w3.org/TR/WCAG21/#name-role-value"
+        }
+      ],
+      "nodes": [
+        {
+          "target": [
+            "#name"
+          ],
+          "html": "<input type=\"text\" id=\"name\">",
+          "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+          "checks": [
+            {
+              "id": "implicit-label",
+              "message": "Element does not have an implicit (wrapped) <label>",
+              "data": null
+            },
+            {
+              "id": "explicit-label",
+              "message": "Element does not have an explicit <label>",
+              "data": null
+            },
+            {
+              "id": "aria-label",
+              "message": "aria-label attribute does not exist or is empty",
+              "data": null
+            },
+            {
+              "id": "aria-labelledby",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+              "data": null
+            },
+            {
+              "id": "non-empty-title",
+              "message": "Element has no title attribute",
+              "data": {
+                "messageKey": "noAttr"
+              }
+            },
+            {
+              "id": "non-empty-placeholder",
+              "message": "Element has no placeholder attribute",
+              "data": {
+                "messageKey": "noAttr"
+              }
+            },
+            {
+              "id": "presentational-role",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "data": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "incomplete": [],
+  "contrast": {
+    "items": [
+      {
+        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(1) > h1:nth-child(1)",
+        "text": "Registration form",
+        "foreground": [
+          0,
+          0,
+          0
+        ],
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSizePx": 32,
+        "fontWeight": 700,
+        "reason": null,
+        "disabled": false,
+        "ratio": 21,
+        "requiredRatio": 3,
+        "status": "pass",
+        "criterion": "1.4.3",
+        "qualification": "Static color sample; visual and semantic exceptions require human review."
+      },
+      {
+        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(1) > p:nth-child(5)",
+        "text": "This text has insufficient contrast.",
+        "foreground": [
+          170,
+          170,
+          170
+        ],
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSizePx": 16,
+        "fontWeight": 400,
+        "reason": null,
+        "disabled": false,
+        "ratio": 2.3231230535045992,
+        "requiredRatio": 4.5,
+        "status": "fail",
+        "criterion": "1.4.3",
+        "qualification": "Static color sample; visual and semantic exceptions require human review."
+      }
+    ],
+    "truncated": false,
+    "limit": 500,
+    "method": "WCAG relative luminance; opaque solid colors only"
+  },
+  "manualChecks": [
+    "Keyboard access to all functions and logical focus order",
+    "Screen reader meaning, states and error announcements",
+    "Contextual accuracy of image alternatives"
+  ]
+}

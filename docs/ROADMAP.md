@@ -1,23 +1,22 @@
-# Günlük aşamalar
+# Development stages
 
-Başlangıç: 17 Ekim 2026. Çalışma: her gün 10.00, Europe/Istanbul.
-14 aşama ilk plandır; kabul koşulu sağlanmazsa aynı aşama ertesi gün devam eder. Kesin teslim tarihi taahhüdü değildir.
+Started 17 October 2026. Scheduled work runs daily at 10:00 Europe/Istanbul. A stage is complete only when its acceptance criteria pass. Dates do not imply completion. On 17 October the user explicitly accelerated work through stage 5 inclusive.
 
-| Aşama | İş | Kabul koşulu |
+| Stage | Work | Acceptance criteria |
 | --- | --- | --- |
-| 1 | Ortam, denetim motoru, örnek arayüz | Kurulum çalışır; bilinen 5 hata yakalanır; düzeltilmiş örnekte bu hatalar yoktur; API ve arayüz testleri geçer. |
-| 2 | Web adresiyle tek sayfa taraması | HTTP/HTTPS adresi alınır. Özel/yerel IP, DNS yeniden bağlama, yönlendirme, alt kaynak ve servis çalışanı sınırları uygulanır. Olumsuz ağ testleri, süre ve eşzamanlılık sınırı doğrulanır. |
-| 3 | Bulgular ekranı | Kural/önem derecesi/öğe filtreleri, WCAG ölçütü bağlantıları ve incomplete ayrımı gerçek tarama verisiyle çalışır. |
-| 4 | Tarama geçmişi | SQLite şeması ve geçişleri; yeniden başlatma sonrası raporlar korunur; listeleme ve ayrıntı API testleri geçer. |
-| 5 | Kontrast analizi | Normal/büyük metin eşikleri, renk ve oran kanıtı gösterilir; bilinen renk çiftleriyle test edilir; belirsiz arka plan elle incelemeye ayrılır. |
-| 6 | Erişilebilir ad ve ARIA | İsim, etiket, rol ve durum hataları açıklanır; dekoratif ve bilgi taşıyan görsel ayrımı elle doğrulama olarak korunur. |
-| 7 | Klavye davranışı | Tab sırası, odak görünürlüğü ve olası tuzaklar kanıtla raporlanır. Otomatik kontrolün sınırı belirtilir. Kontrollü örneklerle test edilir. |
-| 8 | İnsan doğrulaması | Ekran okuyucu ve klavye kontrol listeleri, not/kanıt ve yapılmadı/geçti/kaldı durumları saklanır. Gerçekleştirilmeyen NVDA/VoiceOver kontrolleri işaretlenmez. |
-| 9 | Düzeltme önerileri | En az 5 kural için bağlama uygun Türkçe öneri ve kod farkı; anlamsal içerik uydurma yok; uygulanabilirlik/inceleme gereksinimi ayrılır. |
-| 10 | Yerel otomatik iyileştirme | Güvenli ve belirlenebilir düzeltmeler yerel kopyaya uygulanır; kullanıcı seçimi, önce-sonra farkı, geri alma ve yeniden tarama test edilir. Harici site değiştirilmez. |
-| 11 | Sınırlı site taraması | Aynı origin, sayfa/derinlik sınırı, tekilleştirme, iptal ve hata durumları; ağ güvenliği her sayfada korunur. |
-| 12 | Rapor dışa aktarımı | JSON ve yazdırılabilir HTML; hedef, zaman, motor sürümü, kapsam, bulgular, elle kontroller ve önce-sonra sonuçları doğru aktarılır. |
-| 13 | Regresyon ve paketleme | Kurulum temiz dizinde doğrulanır; hata senaryoları, mobil arayüz, klavye ve uygulamanın kendi erişilebilirliği kontrol edilir. |
-| 14 | Ders teslim paketi | Kullanım kılavuzu, mimari, standart eşlemesi, test kanıtları, sınırlılıklar, demo senaryosu ve ders raporu taslağı hazırlanır. Kabul koşulları tek tek kontrol edilir. |
+| 1 | Environment and sample audit | Setup runs; five known defects are detected; corrected fixture has no automatic violations; API and interface checks pass. |
+| 2 | Public URL scanning | HTTP/HTTPS single-page scan; private/reserved/mixed DNS rejection, pinned connections, checked redirects and subresources; limits, cancellation and single-scan concurrency verified. |
+| 3 | Findings interface | Rule/criterion, impact and element filters; WCAG links; HTML/selectors; incomplete findings shown separately using real audit data. |
+| 4 | Scan history | SQLite schema version and migration; reports survive application/store restart; pagination, detail retrieval and invalid requests tested. |
+| 5 | Contrast analysis | Exact normal/large-text thresholds; colors and ratios displayed; known pairs/boundaries tested; uncertain backgrounds sent to manual review. |
+| 6 | Accessible names and ARIA | English explanations for name, label, role and state problems; contextual image-alternative decisions remain manual. |
+| 7 | Keyboard behavior | Focus order, visibility and possible traps reported with evidence; controlled fixtures and automation limitations documented. |
+| 8 | Human verification | Keyboard/screen reader checklist, notes, evidence and not-tested/pass/fail states persist. No invented NVDA/VoiceOver passes. |
+| 9 | Remediation suggestions | At least five context-specific English recommendations and code diffs; separate deterministic fixes from semantic decisions. |
+| 10 | Local automatic remediation | User-selected deterministic fixes produce a local copy, diff, undo and rescan; never modify an external website. |
+| 11 | Limited site crawling | Same-origin, depth/page limits, deduplication, cancellation and failure handling; retain network protection on each page. |
+| 12 | Report export | JSON and printable HTML containing target, time, engine version, scope, findings, manual checks and before/after results. |
+| 13 | Regression and packaging | Clean installation, failure scenarios, mobile layout, keyboard use and application's own accessibility verified. |
+| 14 | Course delivery package | User guide, architecture, standards mapping, test evidence, limitations, demo and course report; acceptance review. |
 
-Her gün: mevcut durumu oku → sıradaki işi uygula → ilgili kontrolleri çalıştır → günlüğe kanıt ekle → ilerleme dosyasını güncelle.
+Scheduled workflow: read current state -> implement the next incomplete stage -> run relevant checks -> record evidence -> update progress. A failed stage continues on the next run.

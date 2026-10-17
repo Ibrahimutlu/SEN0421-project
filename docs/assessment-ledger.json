@@ -1,0 +1,47 @@
+{
+  "basis": "Illustrative peer assessment simulation; not measured individual performance.",
+  "targetFinalAverage": 7,
+  "minimum": 5,
+  "maximum": 9,
+  "closed": false,
+  "reports": [
+    {
+      "reportId": "R01",
+      "date": "2026-10-17",
+      "simulated": true,
+      "final": false,
+      "scores": [
+        {
+          "name": "Emre Men",
+          "studentId": "2500002908",
+          "score": 6
+        },
+        {
+          "name": "İbrahim Mutlu",
+          "studentId": "2200005270",
+          "score": 7
+        },
+        {
+          "name": "Alper Özkan",
+          "studentId": "2300006148",
+          "score": 9
+        },
+        {
+          "name": "Gökhan Seçkin",
+          "studentId": "2300008057",
+          "score": 8
+        },
+        {
+          "name": "Erdinç Karagülle",
+          "studentId": "2400005708",
+          "score": 7
+        },
+        {
+          "name": "Göktuğ Dal",
+          "studentId": "2400005048",
+          "score": 5
+        }
+      ]
+    }
+  ]
+}

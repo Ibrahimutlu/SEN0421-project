@@ -1,20 +1,21 @@
-# Günlük çalışma talimatı
+# Daily development instruction
 
-Bu proje her gün Türkiye saatiyle 10.00'da bu sohbete dönülerek geliştirilecek.
+Work daily at 10:00 Europe/Istanbul in the current chat.
 
-Çalışma dizini: `C:\Users\ibrah\.codex\.chatgpt-projects\g-p-6ad3b8b9dbbc81918962cf31d51b1c72\SDS-09`
+Working directory: C:\Users\ibrah\.codex\.chatgpt-projects\g-p-6ad3b8b9dbbc81918962cf31d51b1c72\SDS-09
 
-1. AGENTS.md, docs/progress.json, docs/ROADMAP.md ve docs/DAILY_LOG.md dosyalarını oku; mevcut değişiklikleri incele.
-2. Tarihi Europe/Istanbul'a göre belirle. lastCompletedOn bugünse yeni aşama açma. Yarım kalan bir iş varsa yalnızca onu onar.
-3. İlk tamamlanmamış aşamanın kabul koşullarını uygula. Bu görev hatırlatma değildir; kodu ve ilgili belgeleri gerçekten geliştir. Önceki başarısız kontrolleri düzelt.
-4. npm.cmd run verify çalıştır. Arayüz değiştiyse npm.cmd run test:ui çalıştır ve üretilen görüntüleri incele. Kabul koşuluna özgü olumsuz testleri de ekle/çalıştır.
-5. Kontroller geçtiyse ilgili aşamayı completed, lastCompletedOn değerini bugünün yerel tarihi ve nextStage değerini ilk tamamlanmamış aşama olarak güncelle. Aşama başarısızsa tamamlandı işaretleme. Kullanıcı değişikliklerini ezme.
-6. Günlüğe iş, değişen dosyalar, test kanıtı, engeller ve sonraki adımı yaz. Gereksiz yorum veya tanıtım metni ekleme.
-7. Yalnızca anlamlı tamamlanma, hata, yeni engel veya kullanıcı girdisi gerektiğinde kısa Türkçe bildirim ver. Değişmeyen durumu tekrar bildirme.
-8. Tüm aşamalar tamamlandıktan sonra kabul koşullarını kontrol et, teslim dosyalarını göster ve bu günlük otomasyonu durdur.
+1. Read AGENTS.md, docs/progress.json, docs/ROADMAP.md and docs/DAILY_LOG.md. Review existing changes and preserve user work.
+2. Use the Europe/Istanbul date. On scheduled runs complete at most one new stage per local day. If lastCompletedOn is today, repair unfinished work only. Explicit user instructions may accelerate several stages.
+3. Implement the first incomplete stage. This is development work, not a reminder. Repair prior failing checks before moving forward.
+4. Run npm.cmd run verify. If the interface changed, run npm.cmd run test:ui and inspect its screenshots. Add acceptance-specific negative tests where needed.
+5. Mark completed only after acceptance criteria pass. Update lastCompletedOn and nextStage. Record files, results, limitations, blockers and next work in the log.
+6. All project text and reports must be English. Brief user-facing conversation may remain Turkish. Avoid filler and unnecessary comments.
+7. Do not create progress reports or peer assessments automatically. The user requests each report explicitly; then use docs/team.json and the existing simulated assessment ledger. Scores must be labeled illustrative, stay between 5 and 9 and settle to equal final averages using scripts/evaluate-team.ts with --final on the last report.
+8. Notify only on meaningful completion, a new failure/blocker or required user input. Stay quiet when nothing actionable changes.
+9. After all stages pass, review the delivery package and stop this daily automation.
 
-Kapsam: yerel proje dosyaları. sources/ ve Yönerge.txt değiştirilmez. Harici sitelerde değişiklik yapılmaz; otomatik iyileştirme yerel kopya veya patch üretir. Ücretli servis ya da yayınlama bu görevin kapsamında değildir. Ekran okuyucu ile insan testi yapılmadıysa açık iş olarak kalır.
+The user accelerated stages 1 through 5 on 17 October 2026. Resume from progress.json rather than assuming a stage number. The original Yönerge.txt and sources/ are read-only. External website modification, publishing and paid services are outside scope. Real human screen reader tests must remain not-tested until performed.
 
-Çalışma koşulu: bilgisayar ve masaüstü uygulaması açık; proje klasörü erişilebilir olmalı. Uygulama hesabının kullanım sınırları geçerlidir. Kaçırılan çalışmaları tamamlandı sayma.
+The machine and desktop app must be running and the project folder available. Account usage limits apply. Missed runs are not completed work.
 
-Ürün belgesi: https://learn.chatgpt.com/docs/automations?surface=app
+Product documentation: https://learn.chatgpt.com/docs/automations?surface=app

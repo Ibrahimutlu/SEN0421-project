@@ -1,0 +1,37 @@
+
+> sds-09-accessibility-platform@0.2.0 verify
+> npm run check && npm test
+
+
+> sds-09-accessibility-platform@0.2.0 check
+> tsc --noEmit
+
+
+> sds-09-accessibility-platform@0.2.0 test
+> tsx --test tests/*.test.ts
+
+(node:29512) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ saved reports survive a database and API restart with pagination and missing IDs (940.5524ms)
+✔ one scan runs at a time and the scan slot is released after completion (1149.1385ms)
+✔ future database schema versions are refused without overwriting data (29.0804ms)
+✔ simulated scores remain 5 to 9 and a final report equalizes every cumulative average (5.5828ms)
+✔ WCAG luminance and exact size boundaries use unrounded values (0.8273ms)
+✔ contrast evidence distinguishes normal, large, disabled and uncertain text (921.642ms)
+✔ private, loopback, reserved, mapped and unusual IP forms are blocked (9.5318ms)
+✔ mixed DNS responses and redirects into internal networks are rejected (0.9322ms)
+✔ validated addresses are pinned and rebound DNS answers are rejected on the next hop (0.4318ms)
+✔ redirect, request and byte budgets are enforced (6.1768ms)
+✔ the transport connects to the pinned socket address and preserves the Host header (17.6834ms)
+✔ aborted requests stop before invoking the transport (0.3037ms)
+✔ known issues are detected and the corrected fixture has no automatic violations (1502.9741ms)
+✔ static URL scan intercepts private subresources and excludes page scripts (626.7198ms)
+✔ a scan deadline interrupts DNS resolution (57.846ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3329.3453

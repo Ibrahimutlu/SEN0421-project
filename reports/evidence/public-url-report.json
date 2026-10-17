@@ -1,0 +1,63 @@
+{
+  "id": "6cde0dfb-203f-46aa-afe2-e3027924b4a2",
+  "createdAt": "2026-10-17T18:45:24.536Z",
+  "target": "https://example.com/",
+  "standard": "WCAG 2.1",
+  "level": "AA",
+  "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+  },
+  "scope": "Automated audit of one page; this is not a full conformance statement.",
+  "summary": {
+    "violationRules": 0,
+    "affectedNodes": 0,
+    "passedRules": 6,
+    "needsReview": 0
+  },
+  "violations": [],
+  "incomplete": [],
+  "contrast": {
+    "items": [
+      {
+        "selector": "html:nth-child(1) > body:nth-child(2) > p:nth-child(1)",
+        "text": "This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it ",
+        "foreground": [
+          0,
+          0,
+          0
+        ],
+        "background": [
+          238,
+          238,
+          238
+        ],
+        "fontSizePx": 16,
+        "fontWeight": 400,
+        "reason": null,
+        "disabled": false,
+        "ratio": 18.099852162484677,
+        "requiredRatio": 4.5,
+        "status": "pass",
+        "criterion": "1.4.3",
+        "qualification": "Static color sample; visual and semantic exceptions require human review."
+      }
+    ],
+    "truncated": false,
+    "limit": 500,
+    "method": "WCAG relative luminance; opaque solid colors only"
+  },
+  "manualChecks": [
+    "Keyboard access to all functions and logical focus order",
+    "Screen reader meaning, states and error announcements",
+    "Contextual accuracy of image alternatives"
+  ],
+  "renderingMode": "Static HTML and CSS; site JavaScript, frames and authenticated states are excluded.",
+  "finalUrl": "https://example.com/",
+  "network": {
+    "requests": 1,
+    "bytes": 577,
+    "blocked": [],
+    "partial": false
+  }
+}

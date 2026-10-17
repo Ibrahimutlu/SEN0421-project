@@ -1,10 +1,10 @@
 {
   "name": "sds-09-accessibility-platform",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=24.12.0"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -20,6 +20,7 @@
   "dependencies": {
     "axe-core": "4.14.0",
     "express": "5.3.0",
+    "ipaddr.js": "2.5.0",
     "playwright": "1.64.1"
   },
   "devDependencies": {

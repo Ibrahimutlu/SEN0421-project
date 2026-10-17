@@ -1,0 +1,6 @@
+
+> sds-09-accessibility-platform@0.2.0 demo
+> tsx scripts/demo.ts
+
+5 rule violations, 5 affected elements.
+Report: artifacts/demo-report.json

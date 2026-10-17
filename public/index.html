@@ -1,49 +1,62 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SDS-09 erişilebilirlik denetimi ve günlük proje takibi.">
-  <title>SDS-09 · Erişilebilirlik denetimi</title>
+  <meta name="description" content="WCAG 2.1 accessibility audits with saved findings and contrast evidence.">
+  <title>SDS-09 Accessibility Audit</title>
   <link rel="stylesheet" href="/styles.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">İçeriğe geç</a>
-  <header><a class="brand" href="/">SDS<span>09</span></a><span>Erişilebilirlik denetimi</span><span class="local">Yerel çalışma alanı</span></header>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><a class="brand" href="/">SDS<span>09</span></a><span>Accessibility audit</span><span class="local">Local workspace</span></header>
   <main id="main">
-    <p class="eyebrow">SEN0421 / PROJE SDS-09</p>
-    <h1>Erişilebilirlik<br>denetimi</h1>
-    <p class="intro">WCAG 2.1 A ve AA kurallarıyla otomatik denetim. Bulgular, etkilenen öğeler ve elle kontrol gerektiren noktalar tek raporda.</p>
+    <p class="eyebrow">SEN0421 / PROJECT SDS-09</p>
+    <h1>Accessibility audit</h1>
+    <p class="intro">Audit a public web page against automated WCAG 2.1 A and AA rules. Review affected elements, contrast evidence and checks that need human judgment.</p>
     <div class="workspace">
       <section aria-labelledby="scan-title" class="scan">
-        <div class="section-label">01 / DENETİM</div>
-        <h2 id="scan-title">Örnek sayfayı tara</h2>
-        <p>İlk aşamada denetim motorunu iki kontrollü örnekle doğrulayın. Web adresiyle tarama ikinci aşamada eklenecek.</p>
+        <div class="section-label">01 / AUDIT</div>
+        <h2 id="scan-title">Scan a page</h2>
         <form id="scan-form">
-          <label for="example">Test sayfası</label>
-          <select id="example" name="example"><option value="issues">Bilinen hatalar içeren sayfa</option><option value="accessible">Düzeltilmiş sayfa</option></select>
-          <button type="submit" id="scan-button">Denetimi başlat <span aria-hidden="true">↗</span></button>
+          <label for="example">Scan source</label>
+          <select id="example" name="example">
+            <option value="issues">Example with known issues</option>
+            <option value="accessible">Corrected example</option>
+            <option value="contrast">Contrast test cases</option>
+            <option value="url">Public web address</option>
+          </select>
+          <div id="url-field" hidden>
+            <label for="url">Web address</label>
+            <input id="url" name="url" type="url" placeholder="https://example.com" maxlength="2048" aria-describedby="url-help">
+            <p id="url-help" class="hint">Static HTML and CSS only. Site scripts, frames and signed-in states are excluded. Public HTTP/HTTPS addresses on ports 80/443 are supported.</p>
+          </div>
+          <button type="submit" id="scan-button">Start audit <span aria-hidden="true">↗</span></button>
         </form>
-        <p id="status" role="status" aria-live="polite">Denetim başlatılmadı.</p>
+        <p id="status" role="status" aria-live="polite">No audit has started.</p>
         <p id="error" role="alert" hidden></p>
         <section id="results" aria-labelledby="result-title" hidden>
-          <h3 id="result-title">Denetim sonucu</h3>
-          <p id="summary"></p><div id="findings"></div>
-          <button type="button" id="download" class="secondary">JSON raporunu indir</button>
-          <h3>Elle doğrulama</h3><ul id="manual"></ul>
+          <h3 id="result-title">Audit results</h3>
+          <p id="target" class="target"></p><p id="summary"></p><p id="coverage" class="hint"></p>
+          <div class="filters">
+            <div><label for="kind">Finding type</label><select id="kind"><option value="all">All findings</option><option value="violation">Violations</option><option value="incomplete">Needs review</option></select></div>
+            <div><label for="impact">Impact</label><select id="impact"><option value="all">All impacts</option><option value="critical">Critical</option><option value="serious">Serious</option><option value="moderate">Moderate</option><option value="minor">Minor</option><option value="unknown">Unspecified</option></select></div>
+            <div><label for="rule">Rule or criterion</label><input id="rule" type="search" placeholder="e.g. color-contrast or 1.4.3"></div>
+            <div><label for="element">Element or selector</label><input id="element" type="search" placeholder="e.g. button or #name"></div>
+          </div>
+          <p id="filtered-count" role="status"></p><div id="findings"></div>
+          <details id="contrast-details"><summary>Contrast evidence</summary><p class="hint">WCAG 1.4.3 uses 4.5:1 for normal text and 3:1 for large text. Complex backgrounds and visual effects require manual review. Samples are evidence, not a full-page contrast certification.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Contrast sample table"><table><caption>Visible text samples</caption><thead><tr><th scope="col">Text and selector</th><th scope="col">Colors</th><th scope="col">Ratio / required</th><th scope="col">Result</th></tr></thead><tbody id="contrast-body"></tbody></table></div><p id="contrast-limit" class="hint"></p></details>
+          <button type="button" id="download" class="secondary">Download JSON report</button>
+          <h3>Manual verification</h3><ul id="manual"></ul>
         </section>
       </section>
-      <aside aria-labelledby="progress-title">
-        <div class="section-label">02 / İLERLEME</div>
-        <h2 id="progress-title">Günlük çalışma</h2>
-        <p class="schedule">Her gün <strong>10.00</strong><br><span>Türkiye saati</span></p>
-        <p id="progress-count" role="status">Aşamalar yükleniyor…</p>
-        <progress id="progress" max="14" value="0" aria-label="Tamamlanan aşamalar"></progress>
-        <ol id="stages"></ol>
+      <aside>
+        <section aria-labelledby="history-title"><div class="section-label">02 / HISTORY</div><h2 id="history-title">Saved audits</h2><p id="history-status" role="status">Loading history...</p><ol id="history" class="history"></ol><button id="load-history" type="button" class="secondary" hidden>Load more audits</button></section>
+        <section aria-labelledby="progress-title" class="progress-section"><div class="section-label">03 / PROGRESS</div><h2 id="progress-title">Project stages</h2><p class="schedule">Daily at <strong>10:00</strong><br><span>Europe/Istanbul</span></p><p id="progress-count" role="status">Loading stages...</p><progress id="progress" max="14" value="0" aria-label="Completed stages"></progress><ol id="stages"></ol></section>
       </aside>
     </div>
-    <footer>Otomatik tarama, tam WCAG uygunluğunu kanıtlamaz. Klavye ve ekran okuyucu kontrolleri ayrıca yapılır.</footer>
+    <footer>An automated audit does not establish full WCAG conformance. Keyboard and screen reader checks require separate verification.</footer>
   </main>
 </body>
 </html>
